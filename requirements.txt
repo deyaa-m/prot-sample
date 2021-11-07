@@ -1,2 +1,3 @@
 langdetect
-translate
+#translate
+deep_translator
