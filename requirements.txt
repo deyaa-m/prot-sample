@@ -1,3 +1,5 @@
 langdetect
 #translate
 deep_translator
+transformers
+torch
