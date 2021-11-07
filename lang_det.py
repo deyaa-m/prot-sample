@@ -1,9 +1,16 @@
-# Language Detection
+# Imports
 from langdetect import detect
+from translate import Translator
+from deep_translator import GoogleTranslator
 
-with open('sample_2.json') as file:
+# Read sample
+with open('sample_0.json') as file:
     while (line := file.readline().rstrip()):
-        lang = detect(line) 
-        print(lang)
 
-#lang = detect("en, fr, ger")
+# Detect        
+        lang = detect(line) 
+
+# Translate
+        translation = GoogleTranslator(source='auto', target='en').translate(line)
+        print(lang)
+        print(translation)
