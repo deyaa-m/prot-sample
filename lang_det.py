@@ -1,6 +1,5 @@
 # Imports
 from langdetect import detect
-#from translate import Translator
 from deep_translator import GoogleTranslator
 from transformers import pipeline
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
