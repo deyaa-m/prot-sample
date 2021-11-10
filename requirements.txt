@@ -3,3 +3,4 @@ langdetect
 deep_translator
 transformers
 torch
+boto3
