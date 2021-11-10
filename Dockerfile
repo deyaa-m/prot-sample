@@ -7,7 +7,7 @@ WORKDIR /app
 RUN python3.8 -m pip install --upgrade pip \
 	&& make install
 
-CMD ["/bin/python", "lang_det.py"]
+CMD ["/usr/local/bin/python", "lang_det.py"]
 
 
 
