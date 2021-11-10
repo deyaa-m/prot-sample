@@ -1,28 +1,31 @@
 # Imports
 from langdetect import detect
-from translate import Translator
+#from translate import Translator
 from deep_translator import GoogleTranslator
 from transformers import pipeline
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import json
+
 
 # Read sample
-with open('sample_0.json') as file:
-    while (line := file.readline().rstrip()):
-
+with open('sample_2.json') as file:
+    sample = json.load(file)
+    orig_review = sample['review_text'] #json.dumps(sample, indent=1)
+    #print(orig_review)
 # Detect        
-        lang = detect(line) 
+    lang = detect(orig_review) 
 
 # Translate
-        translation = GoogleTranslator(source='auto', target='en').translate(line)
+    eng_review = GoogleTranslator(source='auto', target='en').translate(orig_review)
 
 # Sentiment Analysis
         #tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
 
         #model = AutoModelForSequenceClassification.from_pretrained("distilbert-base-uncased-finetuned-sst-2-english")
 
-        classifier = pipeline("sentiment-analysis")
-        #classifier('it is good to see you.')
+    classifier = pipeline("sentiment-analysis")
+
 # output
-        print(lang)
-        print(translation)
-        print(classifier(line))
+    print(orig_review)
+    print(eng_review)
+    print(classifier(eng_review))
