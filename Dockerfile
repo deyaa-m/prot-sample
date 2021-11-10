@@ -1,10 +1,13 @@
-From python:3.8-alpine3.11
+FROM python:3.8
 
 COPY . /app
 
 WORKDIR /app
 
-RUN make install
+RUN python3.8 -m pip install --upgrade pip \
+	&& make install
+
+CMD ["/bin/bash"]
 
 
 
